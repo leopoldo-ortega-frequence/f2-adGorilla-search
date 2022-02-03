@@ -1,7 +1,7 @@
 export const renderbudgetGraphs = (selector, data) => {
-  const color = d3.scaleOrdinal(["orange", "#dbdbdb"]);
+  const color = d3.scaleOrdinal(d3.schemeTableau10);
   const radius = 50;
-  data.reverse();
+
   data.forEach((d, i) => {
     const circleG = selector
       .append("g")
@@ -45,9 +45,7 @@ export const renderbudgetGraphs = (selector, data) => {
     //Draw arc paths
     arcs
       .append("path")
-      .attr("fill", function (d, i) {
-        return color(i);
-      })
+      .attr("fill", (d, i) => (d.value < 50 ? color(d.value) : "#dbdbdb"))
       .attr("d", arc)
 
       .attr("stroke-width", 6);

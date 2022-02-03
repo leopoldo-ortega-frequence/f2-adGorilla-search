@@ -141,3 +141,11 @@ body {
 #slide-container #slide-content #content-info .content-img img {
   height: 300px;
 }
+
+.tick line {
+  stroke: #c0c0bb;
+}
+
+.tick text {
+  display: none;
+}
